@@ -1,0 +1,103 @@
+{
+  "name": "SwiftMessageAvro",
+  "type": "record",
+  "namespace": "org.srini.benchmark.encoders.avro",
+  "fields": [
+    {
+      "name": "MT101",
+      "type": {
+        "name": "MT101",
+        "type": "record",
+        "fields": [
+          {
+            "name": "BasicHeaderBlock",
+            "type": {
+              "name": "BasicHeaderBlock",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "ApplicationIdentifier",
+                  "type": "string"
+                },
+                {
+                  "name": "ServiceIdentifier",
+                  "type": "int"
+                },
+                {
+                  "name": "LTAddress",
+                  "type": "string"
+                },
+                {
+                  "name": "SessionNumber",
+                  "type": "string"
+                },
+                {
+                  "name": "SequenceNumber",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "ApplicationHeaderInputBlock",
+            "type": {
+              "name": "ApplicationHeaderInputBlock",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "Indicator",
+                  "type": "string"
+                },
+                {
+                  "name": "MessageType",
+                  "type": "int"
+                },
+                {
+                  "name": "DestinationAddress",
+                  "type": {
+                    "name": "DestinationAddress",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "BankCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "CountryCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "LocationCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "LogicalTerminalCode",
+                        "type": "int"
+                      },
+                      {
+                        "name": "BranchCode",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "MessagePriority",
+                  "type": "string"
+                },
+                {
+                  "name": "DeliveryMonitoring",
+                  "type": "int"
+                },
+                {
+                  "name": "ObsolescencePeriod",
+                  "type": "int"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

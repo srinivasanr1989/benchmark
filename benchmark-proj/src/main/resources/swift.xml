@@ -1,0 +1,24 @@
+<MT101>
+	<BasicHeaderBlock>
+		<ApplicationIdentifier>F</ApplicationIdentifier>
+		<ServiceIdentifier>01</ServiceIdentifier>
+		<LTAddress>
+		</LTAddress>
+		<SessionNumber></SessionNumber>
+		<SequenceNumber></SequenceNumber>
+	</BasicHeaderBlock>
+	<ApplicationHeaderInputBlock>
+		<Indicator>I</Indicator>
+		<MessageType>101</MessageType>
+		<DestinationAddress>
+			<BankCode>ABCD</BankCode>
+			<CountryCode>EF</CountryCode>
+			<LocationCode>GH</LocationCode>
+			<LogicalTerminalCode>1</LogicalTerminalCode>
+			<BranchCode>JKA</BranchCode>
+		</DestinationAddress>
+		<MessagePriority>U</MessagePriority>
+		<DeliveryMonitoring>1</DeliveryMonitoring>
+		<ObsolescencePeriod>020</ObsolescencePeriod>
+	</ApplicationHeaderInputBlock>
+</MT101>

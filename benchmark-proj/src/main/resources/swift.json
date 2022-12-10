@@ -1,0 +1,25 @@
+{
+  "MT101": {
+    "BasicHeaderBlock": {
+      "ApplicationIdentifier": "F",
+      "ServiceIdentifier": 1,
+      "LTAddress": "",
+      "SessionNumber": "",
+      "SequenceNumber": ""
+    },
+    "ApplicationHeaderInputBlock": {
+      "Indicator": "I",
+      "MessageType": 101,
+      "DestinationAddress": {
+        "BankCode": "ABCD",
+        "CountryCode": "EF",
+        "LocationCode": "GH",
+        "LogicalTerminalCode": 1,
+        "BranchCode": "JKA"
+      },
+      "MessagePriority": "U",
+      "DeliveryMonitoring": 1,
+      "ObsolescencePeriod": 20
+    }
+  }
+}
