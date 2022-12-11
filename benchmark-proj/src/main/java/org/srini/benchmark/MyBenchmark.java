@@ -31,19 +31,9 @@
 
 package org.srini.benchmark;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.nio.file.Files;
-import java.nio.file.OpenOption;
-import java.nio.file.StandardOpenOption;
-import java.util.EnumSet;
+import java.net.URISyntaxException;
 import java.util.concurrent.TimeUnit;
-
-import javax.xml.transform.stream.StreamResult;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -53,57 +43,38 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.annotations.TearDown;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
-import org.srini.benchmark.encoders.xml.SwiftMessageXml;
+import org.srini.benchmark.encoders.EncodeUtility;
 
-import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
 
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.MINUTES)
-@State(Scope.Thread)
+@State(Scope.Benchmark)
 @Warmup(iterations = 2)
 public class MyBenchmark {
 
-	private JAXBContext jaxbContext;
-
-	private Marshaller compiledMarshaller;
-
-	private Unmarshaller compiledUnMarshaller;
-
-	private SwiftMessageXml messageXml = new SwiftMessageXml();
-
-	private String swiftXmlString;
+	private EncodeUtility encodeUtility;
 
 	@Setup
-	public void init() throws JAXBException, IOException {
-		jaxbContext = JAXBContext.newInstance(SwiftMessageXml.class);
-		compiledMarshaller = jaxbContext.createMarshaller();
-		swiftXmlString = Files.readString(
-				new File("C:\\Users\\Srinivasan\\git\\benchmark\\benchmark-proj\\src\\main\\resources\\swift.xml")
-						.toPath());
-		assert swiftXmlString != null;
+	public void init() throws IOException, JAXBException, URISyntaxException {
+		encodeUtility = new EncodeUtility();
 	}
 
 	@Benchmark
 	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
-	public void xmlMarshall() throws JAXBException {
-		StringWriter stringWriter = new StringWriter();
-		StreamResult resultStream = new StreamResult(stringWriter);
-		compiledMarshaller.marshal(messageXml, resultStream);
+	public void xmlMarshall() throws IOException, JAXBException, URISyntaxException {
+		encodeUtility.xmlMarshall();
 	}
 
 	@Benchmark
 	@Measurement(time = 20, timeUnit = TimeUnit.SECONDS, iterations = 5)
-	public void xmlUnMarshall() throws JAXBException {
-		compiledUnMarshaller.unmarshal(new StringReader(swiftXmlString));
+	public void xmlUnMarshall() throws JAXBException, IOException, URISyntaxException {
+		encodeUtility.xmlUnMarshall();
 	}
 
 	public static void main(String[] args) throws RunnerException {
