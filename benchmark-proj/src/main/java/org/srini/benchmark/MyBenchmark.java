@@ -68,49 +68,49 @@ public class MyBenchmark {
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void xmlMarshall() throws IOException, JAXBException, URISyntaxException {
 		encodeUtility.xmlMarshall();
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void xmlUnMarshall() throws JAXBException, IOException, URISyntaxException {
 		encodeUtility.xmlUnMarshall();
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void avroJsonMarshall() throws IOException {
 		encodeUtility.avroJsonMarshall();
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void avroBinaryMarshall() throws IOException {
 		encodeUtility.avroBinaryMarshall();
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void avroJsonUnMarshall() throws IOException {
 		encodeUtility.avroJsonUnMarshall();
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void avroBinaryUnMarshall() throws IOException {
 		encodeUtility.avroBinaryUnMarshall();
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void jacksonJsonMarshall() throws IOException {
 		encodeUtility.jacksonJsonMarshall();
 	}
 
 	@Benchmark
-	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 3)
 	public void jacksonJsonUnMarshall() throws IOException {
 		encodeUtility.jacksonJsonUnMarshall();
 	}
