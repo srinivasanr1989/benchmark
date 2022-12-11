@@ -3,59 +3,72 @@ package org.srini.benchmark.encoder.json;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BasicHeaderBlock {
-    private String ApplicationIdentifier;
-    private int ServiceIdentifier;
-    private String LTAddress;
-    private String SessionNumber;
-    private String SequenceNumber;
+	private String ApplicationIdentifier;
+	private int ServiceIdentifier;
+	private String LTAddress;
+	private String SessionNumber;
+	private String SequenceNumber;
 
-    @JsonProperty("ApplicationIdentifier")
-    public String getApplicationIdentifier() {
-        return ApplicationIdentifier;
-    }
+	public BasicHeaderBlock() {
+	}
 
-    @JsonProperty("ApplicationIdentifier")
-    public void setApplicationIdentifier(String ApplicationIdentifier) {
-        this.ApplicationIdentifier = ApplicationIdentifier;
-    }
+	public BasicHeaderBlock(String applicationIdentifier, int serviceIdentifier, String lTAddress, String sessionNumber,
+			String sequenceNumber) {
+		super();
+		ApplicationIdentifier = applicationIdentifier;
+		ServiceIdentifier = serviceIdentifier;
+		LTAddress = lTAddress;
+		SessionNumber = sessionNumber;
+		SequenceNumber = sequenceNumber;
+	}
 
-    @JsonProperty("ServiceIdentifier")
-    public int getServiceIdentifier() {
-        return ServiceIdentifier;
-    }
+	@JsonProperty("ApplicationIdentifier")
+	public String getApplicationIdentifier() {
+		return ApplicationIdentifier;
+	}
 
-    @JsonProperty("ServiceIdentifier")
-    public void setServiceIdentifier(int ServiceIdentifier) {
-        this.ServiceIdentifier = ServiceIdentifier;
-    }
+	@JsonProperty("ApplicationIdentifier")
+	public void setApplicationIdentifier(String ApplicationIdentifier) {
+		this.ApplicationIdentifier = ApplicationIdentifier;
+	}
 
-    @JsonProperty("LTAddress")
-    public String getLTAddress() {
-        return LTAddress;
-    }
+	@JsonProperty("ServiceIdentifier")
+	public int getServiceIdentifier() {
+		return ServiceIdentifier;
+	}
 
-    @JsonProperty("LTAddress")
-    public void setLTAddress(String LTAddress) {
-        this.LTAddress = LTAddress;
-    }
+	@JsonProperty("ServiceIdentifier")
+	public void setServiceIdentifier(int ServiceIdentifier) {
+		this.ServiceIdentifier = ServiceIdentifier;
+	}
 
-    @JsonProperty("SessionNumber")
-    public String getSessionNumber() {
-        return SessionNumber;
-    }
+	@JsonProperty("LTAddress")
+	public String getLTAddress() {
+		return LTAddress;
+	}
 
-    @JsonProperty("SessionNumber")
-    public void setSessionNumber(String SessionNumber) {
-        this.SessionNumber = SessionNumber;
-    }
+	@JsonProperty("LTAddress")
+	public void setLTAddress(String LTAddress) {
+		this.LTAddress = LTAddress;
+	}
 
-    @JsonProperty("SequenceNumber")
-    public String getSequenceNumber() {
-        return SequenceNumber;
-    }
+	@JsonProperty("SessionNumber")
+	public String getSessionNumber() {
+		return SessionNumber;
+	}
 
-    @JsonProperty("SequenceNumber")
-    public void setSequenceNumber(String SequenceNumber) {
-        this.SequenceNumber = SequenceNumber;
-    }
+	@JsonProperty("SessionNumber")
+	public void setSessionNumber(String SessionNumber) {
+		this.SessionNumber = SessionNumber;
+	}
+
+	@JsonProperty("SequenceNumber")
+	public String getSequenceNumber() {
+		return SequenceNumber;
+	}
+
+	@JsonProperty("SequenceNumber")
+	public void setSequenceNumber(String SequenceNumber) {
+		this.SequenceNumber = SequenceNumber;
+	}
 }

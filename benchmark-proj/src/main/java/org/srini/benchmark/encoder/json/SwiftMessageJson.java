@@ -4,6 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SwiftMessageJson {
 
+	public SwiftMessageJson() {
+	}
+
+	public SwiftMessageJson(org.srini.benchmark.encoder.json.MT101 mT101) {
+		super();
+		MT101 = mT101;
+	}
+
 	private MT101 MT101;
 
 	@JsonProperty("MT101")

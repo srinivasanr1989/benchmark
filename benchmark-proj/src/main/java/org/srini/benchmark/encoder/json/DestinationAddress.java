@@ -9,6 +9,20 @@ public class DestinationAddress {
 	private int LogicalTerminalCode;
 	private String BranchCode;
 
+	public DestinationAddress() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public DestinationAddress(String bankCode, String countryCode, String locationCode, int logicalTerminalCode,
+			String branchCode) {
+		super();
+		BankCode = bankCode;
+		CountryCode = countryCode;
+		LocationCode = locationCode;
+		LogicalTerminalCode = logicalTerminalCode;
+		BranchCode = branchCode;
+	}
+
 	@JsonProperty("BankCode")
 	public String getBankCode() {
 		return BankCode;

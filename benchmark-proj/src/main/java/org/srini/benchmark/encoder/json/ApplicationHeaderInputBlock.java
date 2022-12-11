@@ -3,70 +3,85 @@ package org.srini.benchmark.encoder.json;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ApplicationHeaderInputBlock {
-    private String Indicator;
-    private int MessageType;
-    private DestinationAddress DestinationAddress;
-    private String MessagePriority;
-    private int DeliveryMonitoring;
-    private int ObsolescencePeriod;
+	private String Indicator;
+	private int MessageType;
+	private DestinationAddress DestinationAddress;
+	private String MessagePriority;
+	private int DeliveryMonitoring;
+	private int ObsolescencePeriod;
 
-    @JsonProperty("Indicator")
-    public String getIndicator() {
-        return Indicator;
-    }
+	public ApplicationHeaderInputBlock() {
+	}
 
-    @JsonProperty("Indicator")
-    public void setIndicator(String Indicator) {
-        this.Indicator = Indicator;
-    }
+	public ApplicationHeaderInputBlock(String indicator, int messageType,
+			org.srini.benchmark.encoder.json.DestinationAddress destinationAddress, String messagePriority,
+			int deliveryMonitoring, int obsolescencePeriod) {
+		super();
+		Indicator = indicator;
+		MessageType = messageType;
+		DestinationAddress = destinationAddress;
+		MessagePriority = messagePriority;
+		DeliveryMonitoring = deliveryMonitoring;
+		ObsolescencePeriod = obsolescencePeriod;
+	}
 
-    @JsonProperty("MessageType")
-    public int getMessageType() {
-        return MessageType;
-    }
+	@JsonProperty("Indicator")
+	public String getIndicator() {
+		return Indicator;
+	}
 
-    @JsonProperty("MessageType")
-    public void setMessageType(int MessageType) {
-        this.MessageType = MessageType;
-    }
+	@JsonProperty("Indicator")
+	public void setIndicator(String Indicator) {
+		this.Indicator = Indicator;
+	}
 
-    @JsonProperty("DestinationAddress")
-    public DestinationAddress getDestinationAddress() {
-        return DestinationAddress;
-    }
+	@JsonProperty("MessageType")
+	public int getMessageType() {
+		return MessageType;
+	}
 
-    @JsonProperty("DestinationAddress")
-    public void setDestinationAddress(DestinationAddress DestinationAddress) {
-        this.DestinationAddress = DestinationAddress;
-    }
+	@JsonProperty("MessageType")
+	public void setMessageType(int MessageType) {
+		this.MessageType = MessageType;
+	}
 
-    @JsonProperty("MessagePriority")
-    public String getMessagePriority() {
-        return MessagePriority;
-    }
+	@JsonProperty("DestinationAddress")
+	public DestinationAddress getDestinationAddress() {
+		return DestinationAddress;
+	}
 
-    @JsonProperty("MessagePriority")
-    public void setMessagePriority(String MessagePriority) {
-        this.MessagePriority = MessagePriority;
-    }
+	@JsonProperty("DestinationAddress")
+	public void setDestinationAddress(DestinationAddress DestinationAddress) {
+		this.DestinationAddress = DestinationAddress;
+	}
 
-    @JsonProperty("DeliveryMonitoring")
-    public int getDeliveryMonitoring() {
-        return DeliveryMonitoring;
-    }
+	@JsonProperty("MessagePriority")
+	public String getMessagePriority() {
+		return MessagePriority;
+	}
 
-    @JsonProperty("DeliveryMonitoring")
-    public void setDeliveryMonitoring(int DeliveryMonitoring) {
-        this.DeliveryMonitoring = DeliveryMonitoring;
-    }
+	@JsonProperty("MessagePriority")
+	public void setMessagePriority(String MessagePriority) {
+		this.MessagePriority = MessagePriority;
+	}
 
-    @JsonProperty("ObsolescencePeriod")
-    public int getObsolescencePeriod() {
-        return ObsolescencePeriod;
-    }
+	@JsonProperty("DeliveryMonitoring")
+	public int getDeliveryMonitoring() {
+		return DeliveryMonitoring;
+	}
 
-    @JsonProperty("ObsolescencePeriod")
-    public void setObsolescencePeriod(int ObsolescencePeriod) {
-        this.ObsolescencePeriod = ObsolescencePeriod;
-    }
+	@JsonProperty("DeliveryMonitoring")
+	public void setDeliveryMonitoring(int DeliveryMonitoring) {
+		this.DeliveryMonitoring = DeliveryMonitoring;
+	}
+
+	@JsonProperty("ObsolescencePeriod")
+	public int getObsolescencePeriod() {
+		return ObsolescencePeriod;
+	}
+
+	@JsonProperty("ObsolescencePeriod")
+	public void setObsolescencePeriod(int ObsolescencePeriod) {
+		this.ObsolescencePeriod = ObsolescencePeriod;
+	}
 }

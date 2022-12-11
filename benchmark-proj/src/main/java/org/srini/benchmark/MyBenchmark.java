@@ -37,6 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
@@ -52,10 +53,11 @@ import org.srini.benchmark.encoders.EncodeUtility;
 
 import jakarta.xml.bind.JAXBException;
 
-@BenchmarkMode(Mode.Throughput)
-@OutputTimeUnit(TimeUnit.MINUTES)
-@State(Scope.Benchmark)
-@Warmup(iterations = 2)
+@BenchmarkMode({ Mode.Throughput })
+@OutputTimeUnit(TimeUnit.SECONDS)
+@State(Scope.Thread)
+@Warmup(iterations = 1)
+@Fork(value = 3)
 public class MyBenchmark {
 
 	private EncodeUtility encodeUtility;
@@ -72,9 +74,45 @@ public class MyBenchmark {
 	}
 
 	@Benchmark
-	@Measurement(time = 20, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
 	public void xmlUnMarshall() throws JAXBException, IOException, URISyntaxException {
 		encodeUtility.xmlUnMarshall();
+	}
+
+	@Benchmark
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	public void avroJsonMarshall() throws IOException {
+		encodeUtility.avroJsonMarshall();
+	}
+
+	@Benchmark
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	public void avroBinaryMarshall() throws IOException {
+		encodeUtility.avroBinaryMarshall();
+	}
+
+	@Benchmark
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	public void avroJsonUnMarshall() throws IOException {
+		encodeUtility.avroJsonUnMarshall();
+	}
+
+	@Benchmark
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	public void avroBinaryUnMarshall() throws IOException {
+		encodeUtility.avroBinaryUnMarshall();
+	}
+
+	@Benchmark
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	public void jacksonJsonMarshall() throws IOException {
+		encodeUtility.jacksonJsonMarshall();
+	}
+
+	@Benchmark
+	@Measurement(time = 10, timeUnit = TimeUnit.SECONDS, iterations = 5)
+	public void jacksonJsonUnMarshall() throws IOException {
+		encodeUtility.jacksonJsonUnMarshall();
 	}
 
 	public static void main(String[] args) throws RunnerException {
